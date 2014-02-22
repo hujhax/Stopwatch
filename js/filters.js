@@ -8,3 +8,9 @@ angular.module('StopwatchFilters', []).filter('minutes', function() {
     return minutes + ":" + seconds + "." + tenths;
   };
 });
+
+angular.module('StopwatchFilters').filter('iif', function() {
+   return function(input, trueValue, falseValue) {
+        return input ? trueValue : falseValue;
+   };
+});
