@@ -7,7 +7,8 @@
  	 	$scope.myStopwatch = stopwatch;
 
  	 	$scope.setTime = function(minutes) {
- 	 		$scope.myStopwatch.data.value = minutes;
+ 	 		$scope.myStopwatch.data.value = minutes * 600;
+ 	 		$scope.myStopwatch.start();
  	 	};
 
 	}]);
