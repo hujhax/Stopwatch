@@ -7,7 +7,7 @@ module.exports = (grunt) ->
                 mangle: true #shorten variable names
                 compressed: true #remove whitespace
                 sourcemap: "minified/application.map" # add a sourcemap
-                banner: "/* WikiMap 2014/*\n" # add a message at the top of file
+                banner: "/* Stopwatch 2014/*\n" # add a message at the top of file
             someTarget:
                 # this is an example of a single target task, ie targets 1 file
                 src: "concated/application.js" # the file that concat takes
@@ -22,7 +22,7 @@ module.exports = (grunt) ->
             options:
                 livereload: true
             scripts:
-                files: ["src/*.js"]
+                files: ["js/*.js"]
                 tasks: ["concat"]
             css:
                 files: ["scss/*.scss"] # watched files
