@@ -16,6 +16,7 @@
       %script{:src => "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"}
       %script{:src => "./js/angular-setup.js"}
       %script{:src => "./js/stopwatch-controller.js"}
+      %script{:src => "./js/filters.js"}
       :javascript        
         /* This code is used to run as soon as Intel activates */
         var onDeviceReady=function(){
@@ -29,7 +30,7 @@
     %script{:src => "js/bootstrap.min.js"}
     %div{"ng-controller" => "StopwatchController"}
       .jumbotron
-        %h1 {{myStopwatch.data.value}}
+        %h1 {{myStopwatch.data.value | minutes}}
         %button.btn.btn-lg.btn-default{"ng-click" => "setTime(5)", :type => "button"} 5 min
         %button.btn.btn-lg.btn-default{"ng-click" => "setTime(10)", :type => "button"} 10 min
         %button.btn.btn-lg.btn-default{"ng-click" => "setTime(30)", :type => "button"} 30 min
@@ -41,7 +42,8 @@
           %li.list-group-item Paused
           %li.list-group-item Resumed
       .jumbotron
-        %h1 {{myStopwatch.data.value}}
+        %h1 {{myStopwatch.data.value | minutes}}
+        %h1 {{myStopwatch | json}}
         %button{"ng-click" => "myStopwatch.start()"} Start
         %button{"ng-click" => "myStopwatch.stop()"} Stop
         %button{"ng-click" => "myStopwatch.reset()"} Reset
