@@ -31,7 +31,11 @@
     %script{:src => "js/bootstrap.min.js"}
     %div{"ng-controller" => "StopwatchController"}
       .jumbotron
-        %h1 {{myStopwatch.data.value | minutes}}
+        %div{"ng-switch" => "", :on => "myStopwatch.data.isPositive"}
+          %div{"ng-switch-default" => ""}
+            %h1{:style => "color:black;"} {{myStopwatch.data.value | minutes}}
+          %div{"ng-switch-when" => "false"}
+            %h1{:style => "color:red; font-weight:bold;"} {{myStopwatch.data.value | minutes}}
         %button.btn.btn-lg.btn-default{"ng-click" => "myStopwatch.setTime(5)", :type => "button"} 5 min
         %button.btn.btn-lg.btn-default{"ng-click" => "myStopwatch.setTime(10)", :type => "button"} 10 min
         %button.btn.btn-lg.btn-default{"ng-click" => "myStopwatch.setTime(30)", :type => "button"} 30 min

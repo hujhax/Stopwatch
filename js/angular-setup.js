@@ -13,7 +13,7 @@
   .constant('TIMER_DELAY', 100)
   .constant('ALARM_DELAY', 4000)
   .factory('stopwatch', function (TIMER_DELAY,ALARM_DELAY,$timeout) {
-      var data = { value: 0, running: true, messages: []};
+      var data = { value: 0, running: true, isPositive: true, messages: []};
 
       var stopwatchTimer = null;
       var alarmTimer = null;
@@ -27,6 +27,7 @@
       var start = function () {
         data.running = true;
         data.value--;
+        data.isPositive = (data.value >= 0);
         stopwatchTimer = $timeout(function() {
           if (data.value == 0) {
             addMessage("Timer hit zero.")
