@@ -40,11 +40,19 @@
           data.value = 0;
       };
 
+      var toggle = function () {
+        if (data.running)
+          stop();
+        else
+          start();
+      };
+
       return {
           data: data,
           start: start,
           stop: stop,
-          reset: reset
+          reset: reset,
+          toggle: toggle
       };
   });
 

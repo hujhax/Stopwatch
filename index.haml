@@ -36,7 +36,7 @@
         %button.btn.btn-lg.btn-default{"ng-click" => "setTime(30)", :type => "button"} 30 min
         %button.btn.btn-lg.btn-default{"ng-click" => "setTime()", :type => "button"} Custom
         %input.form-control{"ng-model" => "customTime", :value => "15", :type => "text"}/
-        %button.btn.btn-lg.btn-danger{:type => "button"} Pause/Resume
+        %button.btn.btn-lg.btn-danger{"ng-click" => "myStopwatch.toggle()", :type => "button"} {{myStopwatch.data.running | iif : "Pause" : "Resume"}}
         %ul.list-group
           %li.list-group-item Set time to 5 min
           %li.list-group-item Paused
