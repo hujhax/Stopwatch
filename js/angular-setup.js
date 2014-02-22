@@ -67,6 +67,7 @@
 
       var setTime = function (minutes) {
         data.value = minutes * 600;
+        stopAlarm();
         start();
       };
 
