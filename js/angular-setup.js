@@ -13,16 +13,23 @@
   .constant('TIMER_DELAY', 100)
   .constant('ALARM_DELAY', 4000)
   .factory('stopwatch', function (TIMER_DELAY,ALARM_DELAY,$timeout) {
-      var data = { value: 0, running: true};
+      var data = { value: 0, running: true, messages: []};
 
       var stopwatchTimer = null;
       var alarmTimer = null;
+
+      var addMessage = function(message) {
+        var now = new moment();
+        var newLine = now.format("HH:mm:ss") + ": " + message; 
+        data.messages.push(newLine);
+      };
           
       var start = function () {
         data.running = true;
         data.value--;
         stopwatchTimer = $timeout(function() {
           if (data.value == 0) {
+            addMessage("Timer hit zero.")
             alarm();
           }
           start();
@@ -59,13 +66,18 @@
       };
 
       var toggle = function () {
-        if (data.running)
+        if (data.running) {
+          addMessage("Timer paused.");
           stop();
-        else
+        }
+        else {
+          addMessage("Timer resumed.");
           start();
+        }
       };
 
       var setTime = function (minutes) {
+        addMessage("Timer started at " + minutes + " minutes.");
         data.value = minutes * 600;
         stopAlarm();
         start();
