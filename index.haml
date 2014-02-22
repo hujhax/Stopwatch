@@ -31,10 +31,10 @@
     %div{"ng-controller" => "StopwatchController"}
       .jumbotron
         %h1 {{myStopwatch.data.value | minutes}}
-        %button.btn.btn-lg.btn-default{"ng-click" => "setTime(5)", :type => "button"} 5 min
-        %button.btn.btn-lg.btn-default{"ng-click" => "setTime(10)", :type => "button"} 10 min
-        %button.btn.btn-lg.btn-default{"ng-click" => "setTime(30)", :type => "button"} 30 min
         %button.btn.btn-lg.btn-default{"ng-click" => "setTime()", :type => "button"} Custom
+        %button.btn.btn-lg.btn-default{"ng-click" => "myStopwatch.setTime(5)", :type => "button"} 5 min
+        %button.btn.btn-lg.btn-default{"ng-click" => "myStopwatch.setTime(10)", :type => "button"} 10 min
+        %button.btn.btn-lg.btn-default{"ng-click" => "myStopwatch.setTime(30)", :type => "button"} 30 min
         %input.form-control{"ng-model" => "customTime", :value => "15", :type => "text"}/
         %button.btn.btn-lg.btn-danger{"ng-click" => "myStopwatch.toggle()", :type => "button"} {{myStopwatch.data.running | iif : "Pause" : "Resume"}}
         %ul.list-group

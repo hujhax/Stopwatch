@@ -47,11 +47,17 @@
           start();
       };
 
+      var setTime = function (minutes) {
+        data.value = minutes * 600;
+        start();
+      };
+
       return {
           data: data,
           start: start,
           stop: stop,
           reset: reset,
+          setTime: setTime,
           toggle: toggle
       };
   });
