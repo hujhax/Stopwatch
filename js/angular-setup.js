@@ -12,21 +12,27 @@
   .module('stopwatch', [])
   .constant('SW_DELAI', 100)
   .factory('stopwatch', function (SW_DELAI,$timeout) {
-      var data = { 
-              value: 0
-          },
-          stopwatch = null;
+      var data = { value: 0, running: false};
+
+      var stopwatch = null;
           
-      var start = function () {;
+      var start = function () {
+          data.running = true;
           stopwatch = $timeout(function() {
-              if (data.value > 0) data.value--;
-              start();
+              if (data.value > 0) {
+                data.value--;
+                start();
+              }
+              else {
+                stop();
+              }
           }, SW_DELAI);
       };
 
       var stop = function () {
           $timeout.cancel(stopwatch);
           stopwatch = null;
+          data.running = false;
       };
 
       var reset = function () {
