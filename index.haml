@@ -30,11 +30,11 @@
     %div{"ng-controller" => "StopwatchController"}
       .jumbotron
         %h1 {{time}}
-        %button.btn.btn-lg.btn-default{:type => "button"} 5 min
-        %button.btn.btn-lg.btn-default{:type => "button"} 10 min
-        %button.btn.btn-lg.btn-default{:type => "button"} 30 min
-        %button.btn.btn-lg.btn-default{:type => "button"} Custom
-        %input.form-control{:placeholder => "15", :type => "text"}/
+        %button.btn.btn-lg.btn-default{"ng-click" => "setTime(5)", :type => "button"} 5 min
+        %button.btn.btn-lg.btn-default{"ng-click" => "setTime(10)", :type => "button"} 10 min
+        %button.btn.btn-lg.btn-default{"ng-click" => "setTime(30)", :type => "button"} 30 min
+        %button.btn.btn-lg.btn-default{"ng-click" => "setTime()", :type => "button"} Custom
+        %input.form-control{"ng-model" => "customTime", :value => "15", :type => "text"}/
         %button.btn.btn-lg.btn-danger{:type => "button"} Pause/Resume
         %ul.list-group
           %li.list-group-item Set time to 5 min
