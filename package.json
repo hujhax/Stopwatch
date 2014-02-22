@@ -1,0 +1,32 @@
+{
+  "name": "Stopwatch",
+  "version": "0.0.0",
+  "description": "A simple stopwatch.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hujhax/Stopwatch.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/hujhax/Stopwatch/issues"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-uglify": "~0.3.2",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-coffee": "~0.10.0",
+    "grunt-contrib-nodeunit": "~0.3.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-compass": "~0.7.2",
+    "grunt-autoprefixer": "~0.6.5",
+    "grunt-contrib-haml": "~0.1.1",
+    "grunt-contrib-jshint": "~0.8.0"
+  }
+}
