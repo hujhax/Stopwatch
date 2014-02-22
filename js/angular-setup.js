@@ -19,7 +19,7 @@
           
       var start = function () {;
           stopwatch = $timeout(function() {
-              data.value++;
+              if (data.value > 0) data.value--;
               start();
           }, SW_DELAI);
       };
