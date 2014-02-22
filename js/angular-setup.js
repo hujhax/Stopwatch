@@ -10,34 +10,52 @@
 
   angular
   .module('stopwatch', [])
-  .constant('SW_DELAI', 100)
-  .factory('stopwatch', function (SW_DELAI,$timeout) {
-      var data = { value: 0, running: false};
+  .constant('TIMER_DELAY', 100)
+  .constant('ALARM_DELAY', 4000)
+  .factory('stopwatch', function (TIMER_DELAY,ALARM_DELAY,$timeout) {
+      var data = { value: 0, running: true};
 
-      var stopwatch = null;
+      var stopwatchTimer = null;
+      var alarmTimer = null;
           
       var start = function () {
-          data.running = true;
-          stopwatch = $timeout(function() {
-              if (data.value > 0) {
-                data.value--;
-                start();
-              }
-              else {
-                stop();
-              }
-          }, SW_DELAI);
+        data.running = true;
+        data.value--;
+        stopwatchTimer = $timeout(function() {
+          if (data.value == 0) {
+            alarm();
+          }
+          start();
+        }, TIMER_DELAY);
+      };
+
+      var stopTimer = function () {
+        $timeout.cancel(stopwatchTimer);
+        stopwatchTimer = null;
+        data.running = false;        
+      };
+
+      var alarm = function () {
+        var audio = new Audio('./media/alarm.wav');
+        audio.play();
+        alarmTimer = $timeout(function() {
+          alarm();
+        }, ALARM_DELAY);
+      };
+
+      var stopAlarm = function () {
+        $timeout.cancel(alarmTimer);
+        alarmTimer = null;
       };
 
       var stop = function () {
-          $timeout.cancel(stopwatch);
-          stopwatch = null;
-          data.running = false;
+        stopTimer();
+        stopAlarm();
       };
 
       var reset = function () {
-          stop()
-          data.value = 0;
+        stop()
+        data.value = 0;
       };
 
       var toggle = function () {
