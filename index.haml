@@ -42,8 +42,6 @@
           %li.list-group-item Resumed
       .jumbotron
         %h1 {{myStopwatch.data.value}}
-        %h3 {{myStopwatch.data.laps|json}}
         %button{"ng-click" => "myStopwatch.start()"} Start
         %button{"ng-click" => "myStopwatch.stop()"} Stop
         %button{"ng-click" => "myStopwatch.reset()"} Reset
-        %button{"ng-click" => "myStopwatch.lap()"} Lap

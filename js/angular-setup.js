@@ -13,8 +13,7 @@
   .constant('SW_DELAI', 100)
   .factory('stopwatch', function (SW_DELAI,$timeout) {
       var data = { 
-              value: 0,
-              laps: []
+              value: 0
           },
           stopwatch = null;
           
@@ -33,19 +32,13 @@
       var reset = function () {
           stop()
           data.value = 0;
-          data.laps = [];
-      };
-
-      var lap = function () {
-          data.laps.push(data.value);
       };
 
       return {
           data: data,
           start: start,
           stop: stop,
-          reset: reset,
-          lap: lap
+          reset: reset
       };
   });
 
