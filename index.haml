@@ -35,8 +35,8 @@
         %button.btn.btn-lg.btn-default{"ng-click" => "myStopwatch.setTime(5)", :type => "button"} 5 min
         %button.btn.btn-lg.btn-default{"ng-click" => "myStopwatch.setTime(10)", :type => "button"} 10 min
         %button.btn.btn-lg.btn-default{"ng-click" => "myStopwatch.setTime(30)", :type => "button"} 30 min
+        %input.form-control{"ng-model" => "customTime", :style => "width: 100px; display: inline-block;", :type => "text"}/
         %button.btn.btn-lg.btn-default{"ng-click" => "myStopwatch.setTime(customTime)", :type => "button"} Custom
-        %input.form-control{"ng-model" => "customTime", :type => "text"}/
         %button.btn.btn-lg.btn-danger{"ng-click" => "myStopwatch.toggle()", :type => "button"} {{myStopwatch.data.running | iif : "Pause" : "Resume"}}
         %ul.list-group
           %li.list-group-item{"ng-repeat" => "message in myStopwatch.data.messages"}
