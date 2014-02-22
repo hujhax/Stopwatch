@@ -4,11 +4,11 @@
   angular.module('StopwatchControllers')
  	 .controller('StopwatchController', ['$scope', 'stopwatch', function($scope, stopwatch) {
  	 	$scope.time = 10;
+ 	 	$scope.myStopwatch = stopwatch;
 
  	 	$scope.setTime = function(minutes) {
- 	 		$scope.time = (minutes > 0) ? minutes : $scope.customTime;
+ 	 		$scope.myStopwatch.data.value = minutes;
  	 	};
 
- 	 	$scope.myStopwatch = stopwatch;
 	}]);
 }());
