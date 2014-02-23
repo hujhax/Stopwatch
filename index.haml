@@ -44,6 +44,8 @@
         %input.form-control{"ng-model" => "customTime", :style => "width: 100px; display: inline-block;", :type => "text"}/
         %button.btn.btn-lg.btn-default{"ng-click" => "myStopwatch.start(customTime)", :type => "button"} Custom
         %button.btn.btn-lg.btn-danger{"ng-click" => "myStopwatch.toggle()", :type => "button"} {{myStopwatch.data.running | iif : "Pause" : "Resume"}}
+        %br
+        %br
         %ul.list-group
           %li.list-group-item{"ng-repeat" => "message in myStopwatch.data.messages"}
             {{message}}
