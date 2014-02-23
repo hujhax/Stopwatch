@@ -1,0 +1,6 @@
+@font-face {
+  font-family: 'LED';
+  font-style: normal;
+  font-weight: normal;
+  src: local('LED'), url('../fonts/digital-7 (mono).ttf') format('truetype');
+}

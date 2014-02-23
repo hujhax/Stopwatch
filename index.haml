@@ -12,6 +12,7 @@
         body { background-color:white; color:black }
       %link{:href => "css/bootstrap.min.css", :rel => "stylesheet"}
       %link{:href => "css/bootstrap-theme.min.css", :rel => "stylesheet"}/
+      %link{:href => "css/stopwatch.css", :rel => "stylesheet"}/
       %script{:src => "intelxdk.js"}
       %script{:src => "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"}
       %script{:src => "./js/angular-setup.js"}
@@ -34,9 +35,9 @@
       .jumbotron
         %div{"ng-switch" => "", :on => "myStopwatch.data.isPositive"}
           %div{"ng-switch-default" => ""}
-            %h1{:style => "color:black;"} {{myStopwatch.data.value | minutes}}
+            %h1{:style => "color:black; font-family: 'LED';"} {{myStopwatch.data.value | minutes}}
           %div{"ng-switch-when" => "false"}
-            %h1{:style => "color:red; font-weight:bold;"} {{myStopwatch.data.value | minutes}}
+            %h1{:style => "color:red; font-weight:bold; font-family: 'LED';"} {{myStopwatch.data.value | minutes}}
         %button.btn.btn-lg.btn-default{"ng-click" => "myStopwatch.start(5)", :type => "button"} 5 min
         %button.btn.btn-lg.btn-default{"ng-click" => "myStopwatch.start(10)", :type => "button"} 10 min
         %button.btn.btn-lg.btn-default{"ng-click" => "myStopwatch.start(30)", :type => "button"} 30 min
