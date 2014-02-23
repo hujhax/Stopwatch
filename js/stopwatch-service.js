@@ -8,6 +8,7 @@
 
       var startTime = 0; // milliseconds since the epoch
       var duration = 0; // in milliseconds
+      var wasPositive = false;
 
       var stopwatchTimer = null;
       var alarmTimer = null;
@@ -31,11 +32,13 @@
 
         data.isPositive = (data.value >= 0);
 
-        stopwatchTimer = $timeout(function() {
-          if (data.value == 0) {
+        if (wasPositive && !data.isPositive) {
             addMessage("Timer hit zero.")
-            alarm();
-          }
+            alarm();          
+        }
+        wasPositive = data.isPositive;
+
+        stopwatchTimer = $timeout(function() {
           runTimer();
         }, TIMER_DELAY);
       };
@@ -81,6 +84,7 @@
       };
 
       var start = function (minutes) {
+        wasPositive = true;
         addMessage("Timer started at " + minutes + " minutes.");
         startTime = currentTime();
         totalTime = minutes * 60000;
