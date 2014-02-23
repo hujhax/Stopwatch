@@ -15,7 +15,7 @@
 
       var addMessage = function(message) {
         var now = new moment();
-        var newLine = now.format("HH:mm:ssa") + ": " + message; 
+        var newLine = now.format("h:mm:ss.Sa") + ": " + message; 
         data.messages.push(newLine);
       };
 
