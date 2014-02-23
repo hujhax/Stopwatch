@@ -4,3 +4,22 @@
   font-weight: normal;
   src: local('LED'), url('../fonts/digital-7 (mono).ttf') format('truetype');
 }
+
+.time {
+	color:#32cd32;
+	font-family: 'LED';
+	font-size: 300px;
+	background-color: black;
+}
+
+.time-expired {
+	color:red;
+	font-family: 'LED';
+	font-size: 300px;
+	font-weight: bold;
+	background-color: black;
+}
+
+.stopwatch-container {
+	padding: 10px;
+}

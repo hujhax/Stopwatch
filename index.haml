@@ -32,12 +32,12 @@
     / Include all compiled plugins (below), or include individual files as needed
     %script{:src => "js/bootstrap.min.js"}
     %div{"ng-controller" => "StopwatchController"}
-      .jumbotron
+      %div.stopwatch-container
         %div{"ng-switch" => "", :on => "myStopwatch.data.isPositive"}
           %div{"ng-switch-default" => ""}
-            %h1{:style => "color:black; font-family: 'LED';"} {{myStopwatch.data.value | minutes}}
+            %h1.time {{myStopwatch.data.value | minutes}}
           %div{"ng-switch-when" => "false"}
-            %h1{:style => "color:red; font-weight:bold; font-family: 'LED';"} {{myStopwatch.data.value | minutes}}
+            %h1.time-expired {{myStopwatch.data.value | minutes}}
         %button.btn.btn-lg.btn-default{"ng-click" => "myStopwatch.start(5)", :type => "button"} 5 min
         %button.btn.btn-lg.btn-default{"ng-click" => "myStopwatch.start(10)", :type => "button"} 10 min
         %button.btn.btn-lg.btn-default{"ng-click" => "myStopwatch.start(30)", :type => "button"} 30 min
