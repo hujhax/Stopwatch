@@ -50,7 +50,7 @@
       };
 
       var alarm = function () {
-        var audio = new Audio('./media/alarm.wav');
+        var audio = new Audio('./media/alarm.mp3');
         audio.play();
         alarmTimer = $timeout(function() {
           alarm();
