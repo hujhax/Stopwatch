@@ -89,6 +89,7 @@
 
       var start = function (minutes) {
         wasPositive = true;
+        durationOfPreviousPauses = 0;
         addMessage("Timer started at " + minutes + " minutes.");
         startTime = currentTime();
         totalTime = minutes * 60000;
