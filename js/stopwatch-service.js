@@ -7,6 +7,8 @@
       var data = { value: 0, running: true, isPositive: true, messages: []};
 
       var startTime = 0; // milliseconds since the epoch
+      var lastPauseTime = 0; // milliseconds since the epoch
+      var durationOfPreviousPauses = 0; // in milliseconds
       var duration = 0; // in milliseconds
       var wasPositive = false;
 
@@ -27,7 +29,7 @@
       var runTimer = function () {
         data.running = true;
 
-        var timeRemaining = startTime + totalTime - currentTime(); 
+        var timeRemaining = startTime + totalTime + durationOfPreviousPauses - currentTime(); 
         data.value = timeRemaining;
 
         data.isPositive = (data.value >= 0);
@@ -75,9 +77,11 @@
       var toggle = function () {
         if (data.running) {
           addMessage("Timer paused.");
+          lastPauseTime = currentTime();
           stop();
         }
         else {
+          durationOfPreviousPauses += currentTime() - lastPauseTime;
           addMessage("Timer resumed.");
           runTimer();
         }
