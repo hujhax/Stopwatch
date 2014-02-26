@@ -69,6 +69,12 @@
         stopAlarm();
       };
 
+      var clear = function () {
+        stop();
+        data.value = 0;
+        data.messages = [];
+      }
+
       var toggle = function () {
         if (data.running) {
           addMessage("Timer paused.");
@@ -97,7 +103,8 @@
           data: data,
           start: start,
           stop: stop,
-          toggle: toggle
+          toggle: toggle,
+          clear: clear
       };
   })
 }());
