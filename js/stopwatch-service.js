@@ -88,6 +88,7 @@
       };
 
       var start = function (minutes) {
+        document.activeElement.blur();
         wasPositive = true;
         durationOfPreviousPauses = 0;
         addMessage("Timer started at " + minutes + " minutes.");
