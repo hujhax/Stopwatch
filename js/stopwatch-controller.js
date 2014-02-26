@@ -34,5 +34,9 @@
 			$scope.myStopwatch.toggle();
 		});
 
+		keyboardManager.bind('escape', function() {
+			$scope.myStopwatch.clear();
+		});
+
 	}]);
 }());

@@ -45,6 +45,7 @@
         %input.form-control{"ng-model" => "customTime", :style => "width: 100px; display: inline-block;", :type => "text"}/
         %button.btn.btn-lg.btn-default{"ng-click" => "myStopwatch.start(customTime)", :type => "button"} Custom
         %button.btn.btn-lg.btn-danger{"ng-click" => "myStopwatch.toggle()", :type => "button"} {{myStopwatch.data.running | iif : "Pause" : "Resume"}}
+        %button.btn.btn-lg.btn-default{"ng-click" => "myStopwatch.clear()", :type => "button"} Clear
         %br
         %br
         %ul.list-group
