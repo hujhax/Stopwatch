@@ -69,11 +69,6 @@
         stopAlarm();
       };
 
-      var reset = function () {
-        stop()
-        data.value = 0;
-      };
-
       var toggle = function () {
         if (data.running) {
           addMessage("Timer paused.");
@@ -102,7 +97,6 @@
           data: data,
           start: start,
           stop: stop,
-          reset: reset,
           toggle: toggle
       };
   })
