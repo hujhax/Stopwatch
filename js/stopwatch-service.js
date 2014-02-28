@@ -73,6 +73,7 @@
         stop();
         data.value = 0;
         data.messages = [];
+        data.isPositive = true;
       }
 
       var toggle = function () {
