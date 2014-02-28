@@ -11,6 +11,7 @@
       var durationOfPreviousPauses = 0; // in milliseconds
       var duration = 0; // in milliseconds
       var wasPositive = false;
+      var canToggle = false;
 
       var stopwatchTimer = null;
       var alarmTimer = null;
@@ -72,11 +73,15 @@
       var clear = function () {
         stop();
         data.value = 0;
+        canToggle = false;
         data.messages = [];
         data.isPositive = true;
       }
 
       var toggle = function () {
+        if (!canToggle)
+          return;
+
         if (data.running) {
           addMessage("Timer paused.");
           lastPauseTime = currentTime();
@@ -90,6 +95,7 @@
       };
 
       var start = function (minutes) {
+        canToggle = true;
         wasPositive = true;
         durationOfPreviousPauses = 0;
         addMessage("Timer started at " + minutes + " minutes.");

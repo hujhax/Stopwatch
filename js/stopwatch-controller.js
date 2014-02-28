@@ -54,6 +54,5 @@
         	document.activeElement.blur();
         	$scope.myStopwatch.clear();
 		}
-
 	}]);
 }());
