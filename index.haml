@@ -50,6 +50,7 @@
         %button.btn.btn-lg.btn-default{"ng-click" => "clearStopwatch()", :type => "button"} Clear
         %br
         %br
-        %div{"ng-repeat-start" => "message in myStopwatch.data.messages"}
-        {{message}}
-        %div{"ng-repeat-end" => ""}
+        %div{:style => "overflow: auto; width:700px; height:180px;"}
+          %div{"ng-repeat-start" => "message in myStopwatch.data.messages"}
+          {{message}}
+          %div{"ng-repeat-end" => ""}
