@@ -29,20 +29,30 @@
 		}, inputDisabled);
 
 		keyboardManager.bind(' ', function() {
-			$scope.myStopwatch.toggle();
+			$scope.toggleStopwatch();
 		}, inputDisabled);
 
 		keyboardManager.bind('enter', function() {
-			$scope.myStopwatch.toggle();
+			$scope.toggleStopwatch();
 		}, inputDisabled);
 
 		keyboardManager.bind('escape', function() {
-			$scope.myStopwatch.clear();
+			$scope.clearStopwatch();
 		}, inputDisabled);
 
 		$scope.startStopwatch = function (minutes) {
         	document.activeElement.blur();
         	$scope.myStopwatch.start(minutes);
+		}
+
+		$scope.toggleStopwatch = function () {
+        	document.activeElement.blur();
+        	$scope.myStopwatch.toggle();
+		}
+
+		$scope.clearStopwatch = function () {
+        	document.activeElement.blur();
+        	$scope.myStopwatch.clear();
 		}
 
 	}]);
