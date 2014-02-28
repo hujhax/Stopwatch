@@ -41,11 +41,11 @@
             %h1.time {{myStopwatch.data.value | minutes}}
           %div{"ng-switch-when" => "false"}
             %h1.time-expired {{myStopwatch.data.value | minutes}}
-        %button.btn.btn-lg.btn-default{"ng-click" => "myStopwatch.start(5)", :type => "button"} 5 min
-        %button.btn.btn-lg.btn-default{"ng-click" => "myStopwatch.start(10)", :type => "button"} 10 min
-        %button.btn.btn-lg.btn-default{"ng-click" => "myStopwatch.start(30)", :type => "button"} 30 min
+        %button.btn.btn-lg.btn-default{"ng-click" => "startStopwatch(5)", :type => "button"} 5 min
+        %button.btn.btn-lg.btn-default{"ng-click" => "startStopwatch(10)", :type => "button"} 10 min
+        %button.btn.btn-lg.btn-default{"ng-click" => "startStopwatch(30)", :type => "button"} 30 min
         %input.form-control{"ng-model" => "customTime", :style => "width: 100px; display: inline-block;", :type => "text"}/
-        %button.btn.btn-lg.btn-default{"ng-click" => "myStopwatch.start(customTime)", :type => "button"} Custom
+        %button.btn.btn-lg.btn-default{"ng-click" => "startStopwatch(customTime)", :type => "button"} Custom
         %button.btn.btn-lg.btn-danger{"ng-click" => "myStopwatch.toggle()", :type => "button"} {{myStopwatch.data.running | iif : "Pause" : "Resume"}}
         %button.btn.btn-lg.btn-default{"ng-click" => "myStopwatch.clear()", :type => "button"} Clear
         %br

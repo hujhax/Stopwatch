@@ -9,23 +9,23 @@
  	 	var inputDisabled = {'inputDisabled': true};
 
 		keyboardManager.bind('1', function() {
-			$scope.myStopwatch.start(10);
+			$scope.startStopwatch(10);
 		}, inputDisabled);
 
 		keyboardManager.bind('3', function() {
-			$scope.myStopwatch.start(30);
+			$scope.startStopwatch(30);
 		}, inputDisabled);
 
 		keyboardManager.bind('5', function() {
-			$scope.myStopwatch.start(5);
+			$scope.startStopwatch(5);
 		}, inputDisabled);
 
 		keyboardManager.bind('c', function() {
-			$scope.myStopwatch.start($scope.customTime);
+			$scope.startStopwatch($scope.customTime);
 		}, inputDisabled);
 
 		keyboardManager.bind('C', function() {
-			$scope.myStopwatch.start($scope.customTime);
+			$scope.startStopwatch($scope.customTime);
 		}, inputDisabled);
 
 		keyboardManager.bind(' ', function() {
@@ -39,6 +39,11 @@
 		keyboardManager.bind('escape', function() {
 			$scope.myStopwatch.clear();
 		}, inputDisabled);
+
+		$scope.startStopwatch = function (minutes) {
+        	document.activeElement.blur();
+        	$scope.myStopwatch.start(minutes);
+		}
 
 	}]);
 }());
