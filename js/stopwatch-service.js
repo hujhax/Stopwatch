@@ -36,7 +36,7 @@
         data.isPositive = (data.value >= 0);
 
         if (wasPositive && !data.isPositive) {
-            addMessage("Timer hit zero.")
+            addMessage("Timer hit zero.");
             alarm();          
         }
         wasPositive = data.isPositive;
@@ -76,7 +76,7 @@
         canToggle = false;
         data.messages = [];
         data.isPositive = true;
-      }
+      };
 
       var toggle = function () {
         if (!canToggle)
@@ -112,5 +112,5 @@
           toggle: toggle,
           clear: clear
       };
-  })
+  });
 }());
