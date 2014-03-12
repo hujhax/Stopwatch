@@ -4,7 +4,7 @@
   .constant('TIMER_DELAY', 100)
   .constant('ALARM_DELAY', 4000)
   .factory('stopwatch', function (TIMER_DELAY,ALARM_DELAY,$timeout) {
-      var data = { value: 0, running: true, isPositive: true, messages: []};
+      var data = { value: 0, running: true, isPositive: true, messages: [], symbol: "•"};
 
       var startTime = 0; // milliseconds since the epoch
       var lastPauseTime = 0; // milliseconds since the epoch
@@ -71,6 +71,7 @@
       };
 
       var clear = function () {
+        data.symbol = "•";
         stop();
         data.value = 0;
         canToggle = false;
@@ -83,11 +84,13 @@
           return;
 
         if (data.running) {
+          data.symbol = "•";
           addMessage("Timer paused.");
           lastPauseTime = currentTime();
           stop();
         }
         else {
+          data.symbol = "►";
           durationOfPreviousPauses += currentTime() - lastPauseTime;
           addMessage("Timer resumed.");
           runTimer();
@@ -95,6 +98,7 @@
       };
 
       var start = function (minutes) {
+        data.symbol = "►";
         canToggle = true;
         wasPositive = true;
         durationOfPreviousPauses = 0;
