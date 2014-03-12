@@ -5,6 +5,10 @@
   src: local('LED'), url('../fonts/digital-7 (mono).ttf') format('truetype');
 }
 
+body {
+	text-align: center;
+}
+
 .time {
 	color:#32cd32;
 	font-family: 'LED';
@@ -22,4 +26,11 @@
 
 .stopwatch-container {
 	padding: 10px;
+}
+
+.log {
+	overflow: auto;
+	width:700px;
+	height:180px;
+	text-align: left;
 }
