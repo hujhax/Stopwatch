@@ -53,6 +53,9 @@
       };
 
       var alarm = function () {
+        if (data.value < -300000) {
+          return; // the alarm doesn't need to keep blaring after five minutes.
+        }
         var audio = new Audio('./media/alarm.mp3');
         audio.play();
         alarmTimer = $timeout(function() {
