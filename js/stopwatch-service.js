@@ -1,7 +1,7 @@
 (function () {
   angular
   .module('stopwatch', [])
-  .constant('TIMER_DELAY', 100)
+  .constant('TIMER_DELAY', 300)
   .constant('ALARM_DELAY', 4000)
   .factory('stopwatch', function (TIMER_DELAY,ALARM_DELAY,$timeout) {
       var data = { value: 0, running: true, isPositive: true, messages: [], symbol: "•"};
