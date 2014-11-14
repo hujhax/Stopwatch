@@ -24,13 +24,6 @@
       %script{:src => "./js/stopwatch-service.js"}
       %script{:src => "./js/filters.js"}
       %script{:src => "./js/adjust-log-height.js"}
-      :javascript        
-        /* This code is used to run as soon as Intel activates */
-        var onDeviceReady=function(){
-        //hide splash screen
-        intel.xdk.device.hideSplashScreen();
-        };
-        document.addEventListener("intel.xdk.device.ready",onDeviceReady,false);
   %body
     %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"}
     / Include all compiled plugins (below), or include individual files as needed
