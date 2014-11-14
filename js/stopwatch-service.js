@@ -108,7 +108,7 @@
         addMessage("Timer started at " + minutes + " minutes.");
         startTime = currentTime();
         totalTime = minutes * 60000;
-        stopAlarm();
+        stop();
         runTimer();
       };
 
