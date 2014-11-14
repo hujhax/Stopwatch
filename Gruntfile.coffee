@@ -24,9 +24,6 @@ module.exports = (grunt) ->
             scripts:
                 files: ["js/*.js"]
                 tasks: ["concat"]
-            css:
-                files: ["scss/*.scss"] # watched files
-                tasks: ["compass"] # task to run on them
             haml:
                 files: ["./*.haml"] # watched files
                 tasks: ["haml"] # task to run on them
@@ -37,12 +34,6 @@ module.exports = (grunt) ->
         autoprefixer:
             options:
                 browsers: ['last 2 version', 'ie 8', 'ie 9']
-        compass:
-            dist:
-                options:
-                    config: 'config.rb'
-                    sourcemap: false
-                    noLineComments: true
         coffee:
             options:
                 bare: false # wrapper function?
@@ -69,11 +60,10 @@ module.exports = (grunt) ->
     grunt.loadNpmTasks 'grunt-contrib-jshint'
     grunt.loadNpmTasks 'grunt-contrib-nodeunit'
     grunt.loadNpmTasks 'grunt-contrib-clean'
-    grunt.loadNpmTasks 'grunt-contrib-compass'
     grunt.loadNpmTasks 'grunt-contrib-haml'
     grunt.loadNpmTasks 'grunt-autoprefixer'
 
     # when called "default", will only run "grunt" on the command line. so what we do is chain a bunch of tasks together in an array. If one fails, the process stops
-    grunt.registerTask "default", ['concat', 'uglify', 'compass', 'autoprefixer', 'haml', 'jshint']
+    grunt.registerTask "default", ['concat', 'uglify', 'autoprefixer', 'haml', 'jshint']
     # "reboot" is arbitrary name, we run clean first, then run default (above).
     grunt.registerTask "reboot", ['clean', 'default']
