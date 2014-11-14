@@ -23,13 +23,7 @@
       %script{:src => "./js/stopwatch-controller.js"}
       %script{:src => "./js/stopwatch-service.js"}
       %script{:src => "./js/filters.js"}
-      :javascript        
-        /* This code is used to run as soon as Intel activates */
-        var onDeviceReady=function(){
-        //hide splash screen
-        intel.xdk.device.hideSplashScreen();
-        };
-        document.addEventListener("intel.xdk.device.ready",onDeviceReady,false);
+      %script{:src => "./js/adjust-log-height.js"}
   %body
     %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"}
     / Include all compiled plugins (below), or include individual files as needed
@@ -42,11 +36,11 @@
           %div{"ng-switch-when" => "false"}
             %h1.time-expired {{myStopwatch.data.value | minutes}}
         %span
-          %button.btn.btn-lg.btn-default{"ng-click" => "startStopwatch(5)", :type => "button"} 5 min
-          %button.btn.btn-lg.btn-default{"ng-click" => "startStopwatch(10)", :type => "button"} 10 min
-          %button.btn.btn-lg.btn-default{"ng-click" => "startStopwatch(30)", :type => "button"} 30 min
+          %button.btn.btn-lg.btn-default{"ng-click" => "startStopwatch(5)", :type => "button"} <u>5</u> min
+          %button.btn.btn-lg.btn-default{"ng-click" => "startStopwatch(10)", :type => "button"} <u>1</u>0 min
+          %button.btn.btn-lg.btn-default{"ng-click" => "startStopwatch(30)", :type => "button"} <u>3</u>0 min
           %input.form-control{"ng-model" => "customTime", :style => "width: 100px; display: inline-block;", :type => "text"}/
-          %button.btn.btn-lg.btn-default{"ng-click" => "startStopwatch(customTime)", :type => "button"} Custom
+          %button.btn.btn-lg.btn-default{"ng-click" => "startStopwatch(customTime)", :type => "button"} <u>C</u>ustom
           %button.btn.btn-lg.btn-danger{"ng-click" => "toggleStopwatch()", :type => "button"} {{myStopwatch.data.running | iif : "Pause" : "Resume"}}
           %button.btn.btn-lg.btn-default{"ng-click" => "clearStopwatch()", :type => "button"} Clear
         %br
