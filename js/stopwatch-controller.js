@@ -28,6 +28,10 @@
 			$scope.startStopwatch(60);
 		}, inputDisabled);
 
+		keyboardManager.bind('up', function() {
+			$scope.bumpStopwatch(1);
+		}, inputDisabled);
+
 		keyboardManager.bind('c', function() {
 			$scope.startStopwatch($scope.customTime);
 		}, inputDisabled);
@@ -51,6 +55,11 @@
 		$scope.startStopwatch = function (minutes) {
         	document.activeElement.blur();
         	$scope.myStopwatch.start(minutes);
+		}
+
+		$scope.bumpStopwatch = function (minutes) {
+        	document.activeElement.blur();
+        	$scope.myStopwatch.bump(minutes);
 		}
 
 		$scope.toggleStopwatch = function () {

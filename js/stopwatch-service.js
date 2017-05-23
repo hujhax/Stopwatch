@@ -112,12 +112,19 @@
         runTimer();
       };
 
+      var bump = function (minutes) {
+        plural = (minutes > 1) ? "s" : "";
+        addMessage("Timer incremented by " + minutes + " minute" + plural + ".");
+        totalTime = totalTime + minutes * 60000;
+      };
+
       return {
           data: data,
           start: start,
           stop: stop,
           toggle: toggle,
-          clear: clear
+          clear: clear,
+          bump: bump
       };
   });
 }());
