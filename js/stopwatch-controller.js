@@ -12,12 +12,20 @@
 			$scope.startStopwatch(10);
 		}, inputDisabled);
 
+		keyboardManager.bind('2', function() {
+			$scope.startStopwatch(20);
+		}, inputDisabled);
+
 		keyboardManager.bind('3', function() {
 			$scope.startStopwatch(30);
 		}, inputDisabled);
 
 		keyboardManager.bind('5', function() {
 			$scope.startStopwatch(5);
+		}, inputDisabled);
+
+		keyboardManager.bind('6', function() {
+			$scope.startStopwatch(60);
 		}, inputDisabled);
 
 		keyboardManager.bind('c', function() {
