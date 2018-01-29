@@ -42,7 +42,7 @@
           %button.btn.btn-lg.btn-default{"ng-click" => "startStopwatch(30)", :type => "button"} <u>3</u>0 min
           %input.form-control{"ng-model" => "customTime", :style => "width: 100px; display: inline-block;", :type => "text"}/
           %button.btn.btn-lg.btn-default{"ng-click" => "startStopwatch(customTime)", :type => "button"} <u>C</u>ustom
-          %button.btn.btn-lg.btn-danger{"ng-click" => "toggleStopwatch()", :type => "button"} {{myStopwatch.data.running | iif : "Pause" : "Resume"}}
+          %button.btn.btn-lg{"ng-click" => "toggleStopwatch()", :type => "button" {myStopwatch.data.running ? {class: "btn-danger"} : {class: "btn-success"}}} {{myStopwatch.data.running | iif : "Pause" : "Resume"}}
           %button.btn.btn-lg.btn-default{"ng-click" => "clearStopwatch()", :type => "button"} Clear
         %br
         %br
