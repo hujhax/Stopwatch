@@ -28,6 +28,14 @@
 			$scope.startStopwatch(60);
 		}, inputDisabled);
 
+		keyboardManager.bind('f', function() {
+			$scope.startStopwatch(15);
+		}, inputDisabled);
+
+		keyboardManager.bind('F', function() {
+			$scope.startStopwatch(15);
+		}, inputDisabled);
+
 		keyboardManager.bind('up', function() {
 			$scope.bumpStopwatch(1);
 		}, inputDisabled);
