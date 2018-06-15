@@ -113,8 +113,9 @@
       };
 
       var bump = function (minutes) {
-        plural = (minutes > 1) ? "s" : "";
-        addMessage("Timer incremented by " + minutes + " minute" + plural + ".");
+        plural = (Math.abs(minutes) > 1) ? "s" : "";
+        crement = (minutes > 0) ? "incremented" : "decremented";
+        addMessage("Timer " + crement + " by " + Math.abs(minutes) + " minute" + plural + ".");
         totalTime = totalTime + minutes * 60000;
       };
 

@@ -40,6 +40,11 @@
 			$scope.bumpStopwatch(1);
 		}, inputDisabled);
 
+
+		keyboardManager.bind('down', function() {
+			$scope.bumpStopwatch(-1);
+		}, inputDisabled);
+
 		keyboardManager.bind('c', function() {
 			$scope.startStopwatch($scope.customTime);
 		}, inputDisabled);
